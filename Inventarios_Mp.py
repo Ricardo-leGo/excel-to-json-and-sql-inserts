@@ -39,9 +39,9 @@ FileName= os.getenv("FileName")
 CatalogJson  = os.getenv("CatlogJson")
 
 _relativePath =  os.path.dirname(os.path.abspath(__file__))
-
+print(_relativePath)
 mainPathFile = os.path.join(_relativePath, FileName)
-
+print(mainPathFile)
 jsonpathfile = os.path.join(_relativePath, CatalogJson)
 
 def readfile():
