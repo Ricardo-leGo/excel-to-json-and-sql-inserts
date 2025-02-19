@@ -98,11 +98,11 @@ with open( os.path.join(_relativePath,  "resultado.json"), "w", encoding="utf-8"
         
         Aplicativos = row["Applications"]
         Estatus = EstatusObj.DisplayName
-        Salud =  0 if math.isnan( row["Salud"] ) else row["Salud"]/100
+        Salud =  0 if math.isnan( row["Salud"] ) else row["Salud"]
         Peso = 0 if row["Peso"]=="TBD" else row["Peso"]
         Factor =  Peso*Salud 
         
-   
+        print(Peso, Salud, Factor, Aplicativos)
         
         AplicativosJson.append( AplicativoToinsert( Aplicativos, Estatus,Salud, Peso, Factor) )
         
@@ -111,7 +111,6 @@ with open( os.path.join(_relativePath,  "resultado.json"), "w", encoding="utf-8"
         
     datadict = [ item.Createobj()  for item in AplicativosJson]
     
-    print(datadict)
     
     insertjson.write( json.dumps(datadict, indent=4) ) 
     
